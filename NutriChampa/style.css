@@ -1,0 +1,380 @@
+/* BODY  */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #2E3B4E, #F47C20, #FFD66B, #9EDC8B);
+  background-attachment: fixed;
+  color: black;
+  scroll-behavior: smooth;
+}
+
+/*  HEADER  */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: rgba(46, 59, 78, 0.95);
+  backdrop-filter: blur(6px); /*desenfoque*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4%;
+  box-sizing: border-box;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(46, 59, 78, 1);
+}
+
+/* LOGO Y TÍTULO  */
+.encabezado {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  white-space: nowrap;
+}
+
+.encabezado img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+}
+
+.encabezado h1 {
+  font-size: 1.6rem;
+  margin: 0;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/*MENÚ */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Efecto de línea */
+.menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #FFD66B;
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+.menu a:hover {
+  color: #FFD66B;
+}
+
+/* BOTÓN HAMBURGUESA  */
+.menu-btn {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*   RESPONSIVE  */
+@media (max-width: 950px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: rgba(46, 59, 78, 0.97);
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    display: none;
+    text-align: center;
+    border-top: 2px solid #FFD66B;
+  }
+
+  .menu.show {
+    display: flex;
+    animation: fadeDown 0.4s ease;
+  }
+
+  @keyframes fadeDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* === SECCIONES Y CONTENIDO === */
+section {
+  scroll-margin-top: 130px;
+  padding: 100px 10%;
+  margin: 100px 5%;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  text-align: center;
+  color: #2E3B4E;
+  font-size: 2rem;
+}
+
+/* CONTENIDO FLEX */
+.contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.invertido {
+  flex-direction: row-reverse;
+}
+
+.texto {
+  flex: 1;
+  text-align: justify;
+}
+
+.imagen img {
+  max-width: 100%;
+  border-radius: 20px;
+  transition: transform 0.5s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.imagen img:hover {
+  transform: scale(1.05);
+}
+
+
+/*  PLATO SALUDABLE  */
+.plato {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+/*  BASE PARA TODAS LAS PARTES  */
+.parte {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-size: contain;        /*  muestra toda la imagen */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border: 5px solid transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(135deg, #9EDC8B, #FFD66B, #F47C20);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Animación al pasar el mouse */
+.parte:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* IMÁGENES PARTES*/
+.parte1 {
+  background-image: url("img/verdura\ y\ fruta.jpg"); 
+}
+
+.parte2 {
+  background-image: url("img/proteina.jpg");
+  background-size: contain;
+  
+}
+
+.parte3 {
+  background-image: url("img/cereales.jpg"); 
+
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #2E3B4E;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.item p {
+  margin-top: 12px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .plato {
+    gap: 20px;
+  }
+  .parte {
+    width: 160px;
+    height: 160px;
+  }
+}
+/*  TABLA  */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  background: #F47C20;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  background: white;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  section {
+    margin: 60px 2%;
+    padding: 60px 5%;
+  }
+}
+
+.fuente {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+
+/*  LONCHERAS  */
+.tarjetas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  background: #FFD66B;
+  border-radius: 20px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/*  CONSEJOS  */
+.consejos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.tip {
+  background: #9EDC8B;
+  color: #2E3B4E;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.tip:hover {
+  background: #F47C20;
+  color: white;
+}
+
+/*  FOOTER */
+footer {
+  background: #2E3B4E;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px 20px 0 0;
+  font-size: 0.95rem;
+}
+
+/*  RESPONSIVE  */
+@media (max-width: 1000px) {
+  .contenido {
+    flex-direction: column;
+  }
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .encabezado h1 {
+    font-size: 1.4rem;
+  }
+  .parte {
+    width: 150px;
+    height: 150px;
+  }
+}
