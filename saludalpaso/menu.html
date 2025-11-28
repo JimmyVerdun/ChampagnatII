@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salud al Paso 🌿</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h1>🥑 Salud al Paso</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienes.html">¿Quiénes somos?</a></li>
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Menú -->
+<section id="menu">
+  <h2>🍽️ Nuestro Menú Saludable</h2>
+
+  <div class="filtro">
+    <button class="activo" onclick="mostrarCategoria('Desayuno', this)">Desayunos</button>
+    <button onclick="mostrarCategoria('Almuerzo', this)">Almuerzos</button>
+    <button onclick="mostrarCategoria('Cena', this)">Cenas</button>
+    <button onclick="mostrarCategoria('Todo', this)">Ver Todo</button>
+  </div>
+
+  <div class="productos-container" id="productos-container"></div>
+
+  <div id="carrito">
+    <h3>🛍️ Tu Pedido</h3>
+    <ul id="lista-carrito"></ul>
+    <p><strong>Total:</strong> <span id="total">0</span> Bs</p>
+    <select id="pago">
+      <option value="QR">Pago QR</option>
+      <option value="Efectivo">Efectivo</option>
+    </select>
+    <button id="confirmar">Confirmar Pedido</button>
+    <p>Pedidos realizados: <span id="contador">0</span></p>
+    <div id="mensaje-confirmacion">✅ Pedido confirmado. Te redirigimos a WhatsApp...</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Salud al Paso - Comer sano es vivir mejor 🌿</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

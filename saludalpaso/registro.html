@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salud al Paso 🌿</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h1>🥑 Salud al Paso</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienes.html">¿Quiénes somos?</a></li>
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="registro.html">Registro</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- Registro -->
+<section id="registro">
+  <h2>🧾 Registro</h2>
+  <p>Cuéntanos tus necesidades para ofrecerte las mejores opciones</p>
+  <form id="form-registro">
+    <input type="text" id="nombre" placeholder="Nombre completo" required>
+    <input type="email" id="correo" placeholder="Correo electrónico" required>
+    <select id="requerimientos" required>
+      <option value="">Selecciona tu tipo de dieta</option>
+      <option value="Vegetariano">Vegetariano</option>
+      <option value="Vegano">Vegano</option>
+      <option value="Sin Gluten">Sin Gluten</option>
+      <option value="Keto">Keto</option>
+      <option value="General">General</option>
+    </select>
+    <button type="submit">Registrar</button>
+  </form>
+
+  <div id="perfil-usuario" style="display:none;">
+    <h3>🌸 Perfil del Usuario</h3>
+    <p>👤 Nombre: <span id="perfil-nombre"></span></p>
+    <p>📧 Correo: <span id="perfil-correo"></span></p>
+    <p>🍽️ Tipo de dieta: <span id="perfil-requerimientos"></span></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Salud al Paso - Comer sano es vivir mejor 🌿</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
