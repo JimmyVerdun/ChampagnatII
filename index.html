@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos BTH 2025 | UE Marcelino Champagnat II</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="Logo.JPG" alt="Logo UE Marcelino Champagnat II" class="logo-img">
+        <div class="titulo-header">
+            <h1>Unidad Educativa Marcelino Champagnat II</h1>
+            <div class="subtitulo">Proyectos BTH 2025 - 6<sup>to</sup> de Secundaria</div>
+        </div>
+        <button class="btn-inicio" onclick="mostrarInicio()">Inicio</button>
+    </header>
+
+    <!-- BOTÓN PRINCIPAL -->
+    <div class="btn-menu-principal" onclick="toggleMenu()">
+        <i class="fas fa-laptop-code"></i>
+        Proyectos del BTH
+    </div>
+
+    <!-- MENU LATERAL -->
+    <div class="overlay" id="overlay">
+        <ul>
+            <li class="has-submenu">
+                <a href="javascript:void(0)" onclick="toggleSubmenu(this.parentElement)">
+                    6<sup>to</sup> "A" <i class="fas fa-chevron-right"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="javascript:void(0)" onclick="mostrarSeccion('A-innovacion')">Proyecto de
+                            Innovación</a></li>
+                    <li><a href="javascript:void(0)" onclick="mostrarSeccion('A-emprendimiento')">Proyecto de
+                            Emprendimiento Productivo</a></li>
+                    <li><a href="javascript:void(0)" onclick="mostrarSeccion('A-comunitaria')">Práctica Laboral
+                            Comunitaria</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="javascript:void(0)" onclick="toggleSubmenu(this.parentElement)">
+                    6<sup>to</sup> "B" <i class="fas fa-chevron-right"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="javascript:void(0)" onclick="mostrarSeccion('B-innovacion')">Proyecto de
+                            Innovación</a></li>
+                    <li><a href="javascript:void(0)" onclick="mostrarSeccion('B-emprendimiento')">Proyecto de
+                            Emprendimiento Productivo</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SLIDER -->
+    <div class="slider" id="slider">
+        <div class="slide active" style="background-image:url('img/Defensa01.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/Defensa02.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/Defensa03.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/Defensa04.jpg');">
+        </div>
+        <div class="slide active" style="background-image:url('img/Defensa05.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores01.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores02.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores03.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores04.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores05.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores06.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores07.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores08.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores09.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores10.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores11.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores12.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores13.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores14.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores15.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores16.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores17.jpg');">
+        </div>
+        <div class="slide" style="background-image:url('img/JuradoExpositores18.jpg');">
+        </div>
+        <div class="slide-text">
+            <h2>DEFENSAS BTH 2025</h2>
+            <p>Proyectos de Innovación, Emprendimiento y Práctica Comunitaria</p>
+        </div>
+    </div>
+    <div class="container" id="contenido-principal"></div>
+    <!-- CONTENIDO PRINCIPAL -->
+    <div style="display:none;">
+        <!-- PLANTILLAS DE PROYECTOS (ocultas) -->
+        <div id="A-innovacion" class="proyectos-container">
+            <h2>Proyectos de Innovación - 6<sup>to</sup> "A"</h2>
+            <div class="grid-proyectos">
+                <div class="proyecto-info">
+                    <h3>Desarrollo de un Sistema Web de Gestión y Avisos de Actividades Escolares</h3>
+                    <div class="estudiantes">Aguilera Guzmán Jimmy Jorel<br>Egüez Lara Estephany</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Implementación de un Sistema Web para la Administración de Pagos y Boletines</h3>
+                    <div class="estudiantes">Flores Tantati Micaela<br>Céspedes Cuellar Matías</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Implementación de un Sitio Web para la Reserva y Compra de Indumentaria Escolar</h3>
+                    <div class="estudiantes">Daza Bernal Naomi Antonella<br>Cruz Arroyo Franz</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Desarrollo de un Sitio Web de Experimentos Científicos Básicos</h3>
+                    <div class="estudiantes">Conde Castro Estefany<br>Gómez Morales Gustavo Mathias</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Implementación de un Servidor de Archivos</h3>
+                    <div class="estudiantes">Martínez Hidalgo Arturo<br>Peinado Hoyos Matías Santiago</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Diseño de un Sistema Web para Solicitud de Licencias</h3>
+                    <div class="estudiantes">Montaño Ribera Douglas<br>Lara Cerezo Leonardo Miguel</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Implementación de un Servidor de Directorio Activo</h3>
+                    <div class="estudiantes">Olivera Peralta Lucas Isai<br>Yucra Patiño Mathias Santiago</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="A-emprendimiento" class="proyectos-container">
+            <h2>Proyectos de Emprendimiento Productivo - 6<sup>to</sup> "A"</h2>
+            <div class="grid-proyectos">
+                <div class="proyecto-info">
+                    <h3>Página Web para el Cuidado Capilar Femenino</h3>
+                    <div class="estudiantes">Gutiérrez Viruez Tais Milena<br>Justiniano Hurtado Rodrigo</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Sitio Web para el Cuidado de la Piel</h3>
+                    <div class="estudiantes">Terrazas Tirina Leandro Enrique<br>Arce Choqueticlla Nicole Dairen
+                    </div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>"Conecrado Negocios" – Alis Salón Glow</h3>
+                    <div class="estudiantes">Melgar Guarachi Johana Mishel</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="A-comunitaria" class="proyectos-container">
+            <h2>Práctica Laboral Comunitaria - 6<sup>to</sup> "A"</h2>
+            <div class="grid-proyectos">
+                <div class="proyecto-info">
+                    <h3>Práctica Laboral Comunitaria en la Empresa "DIMAR"</h3>
+                    <div class="estudiantes">Mazuelos Hurtado Danna Mabel<br>Garzón Castro Brenda</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="B-innovacion" class="proyectos-container">
+            <h2>Proyectos de Innovación - 6<sup>to</sup> "B"</h2>
+            <div class="grid-proyectos">
+                <div class="proyecto-info">
+                    <h3>Desarrollo de un Sistema de Inventario de Equipos Informáticos</h3>
+                    <div class="estudiantes">Crosa Lopez Mateo<br>Vazquez Cabrera Joel Matías</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Control de Navegación a Internet</h3>
+                    <div class="estudiantes">Velasquez Rivero Leandro F.<br>Paredes Limón Alejandra R.</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Implementación de Software Veyon</h3>
+                    <div class="estudiantes">Caceres Jordan Luis Michael<br>Siñani Guardia Rosse C.</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Sistema de Solicitud de Licencias</h3>
+                    <div class="estudiantes">Filipovic Flores Branko<br>Ticona Merida Dairo</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Gestión de Actividades de Estudiantes</h3>
+                    <div class="estudiantes">Osinaga Callejas Adriany G.<br>Mendez Arteaga Diana C.</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Sistema Web de Preinscripción</h3>
+                    <div class="estudiantes">Gutierrez Triana<br>Villarroel Jimenez Valentina</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Periódico Virtual Digital</h3>
+                    <div class="estudiantes">Charria Vaca Angel Ruben<br>Murrillo Jaramillo Jhoel A.</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Cuentos en Lenguaje de Señas</h3>
+                    <div class="estudiantes">Arandia Osinaga Alvaro René</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Plataforma "Tilines Fitness"</h3>
+                    <div class="estudiantes">Morón Rojas Elvis Carlos<br>Quintanilla Ribera Bruno</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="B-emprendimiento" class="proyectos-container">
+            <h2>Proyectos de Emprendimiento Productivo - 6<sup>to</sup> "B"</h2>
+            <div class="grid-proyectos">
+                <div class="proyecto-info">
+                    <h3>Snack virtual "Comida al Paso"</h3>
+                    <div class="estudiantes">Limachi Limachi Adriana<br>Cayalo Limachi Sdenka</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Tienda Sport SCZ</h3>
+                    <div class="estudiantes">Mendoza Sanchez Flor Yusara<br>Yerbales Torrico Leonardo S.</div>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Natural Organic Cosmetics</h3>
+                    <div class="estudiantes">Fernández Copelman Damaris N.<br>Rios Gomez Luciana Massiel</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p><strong>Unidad Educativa Marcelino Champagnat II</strong></p>
+        <p>"Todo a Jesús por María, todo a María para Jesús"</p>
+        <p>© 2025 • Proyectos BTH - 6<sup>to</sup> de Secundaria</p>
+    </footer>
+<script src="script.js"></script>
+</body>
+
+</html>
