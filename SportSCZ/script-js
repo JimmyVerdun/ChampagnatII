@@ -1,0 +1,178 @@
+let cart = [];
+
+function showSection(section) {
+    document.querySelectorAll('.container').forEach(container => container.style.display = 'none');
+    document.getElementById(section).style.display = 'block';
+
+    if (section === 'carrito') {
+        updateCartDisplay();
+        // Asegura que al entrar al carrito se muestra directamente la opción de pago QR 
+        // y el botón de generar factura esté disponible si hay items.
+        if (cart.length > 0) {
+            payWithQR();
+        } else {
+            document.getElementById('qrCodeContainer').style.display = 'none';
+        }
+    }
+}
+
+function addToCart(item, price) {
+    cart.push({
+        id: Date.now(),
+        item,
+        price
+    });
+    updateCartCount();
+
+    // Notificación mejorada
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: slideIn 0.5s;
+        `;
+    notification.innerHTML = `<i class="fas fa-check-circle"></i> ${item} añadido al carrito`;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    updateCartDisplay();
+    updateCartCount();
+}
+
+function updateCartCount() {
+    document.getElementById('cartCount').textContent = cart.length;
+}
+
+function updateCartDisplay() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>Agrega productos para comenzar tu compra</p>
+                </div>
+            `;
+        cartTotal.innerHTML = '';
+        document.getElementById('qrCodeContainer').style.display = 'none'; // Ocultar QR si está vacío
+        return;
+    }
+
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(({ id, item, price }) => {
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+                <div class="cart-item-info">
+                    <div class="cart-item-name">${item}</div>
+                    <div class="cart-item-price">Bs ${price}</div>
+                </div>
+                <button class="btn-danger" onclick="removeFromCart(${id})">
+                    <i class="fas fa-trash"></i> Eliminar
+                </button>
+            `;
+        cartItems.appendChild(cartItem);
+        total += price;
+    });
+
+    cartTotal.innerHTML = `<strong>Total: Bs ${total}</strong>`;
+
+    // Al actualizar el display, re-generar el QR si es visible
+    if (document.getElementById('qrCodeContainer').style.display !== 'none') {
+        payWithQR();
+    }
+}
+
+// ELIMINADO: function payWithCard() { ... }
+
+function payWithQR() {
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+    if (total === 0) {
+        alert('El carrito está vacío. Agregue productos para pagar.');
+        document.getElementById('qrCodeContainer').style.display = 'none';
+        return;
+    }
+
+    document.getElementById('qrTotal').textContent = total;
+    document.getElementById('qrCodeContainer').style.display = 'block';
+
+    const paymentData = `SPORT SCZ - Total: Bs ${total}`;
+    QRCode.toCanvas(document.createElement('canvas'), paymentData, {
+        width: 300,
+        margin: 2,
+        color: {
+            dark: '#28a745',
+            light: '#ffffff'
+        }
+    }, function (err, canvas) {
+        const qrCode = document.getElementById('qrCode');
+        qrCode.innerHTML = '';
+        qrCode.appendChild(canvas);
+    });
+}
+
+function generateInvoice() {
+    if (cart.length === 0) {
+        alert('El carrito está vacío');
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    let total = 0;
+
+    doc.setFontSize(20);
+    doc.text('SPORT SCZ', 105, 20, { align: 'center' });
+    doc.setFontSize(16);
+    doc.text('Factura de Compra', 105, 30, { align: 'center' });
+    doc.setFontSize(12);
+    doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 20, 45);
+    doc.text(`Hora: ${new Date().toLocaleTimeString()}`, 20, 52);
+
+    let tableBody = cart.map(item => {
+        total += item.price;
+        return [item.item, `Bs ${item.price}`];
+    });
+
+    doc.autoTable({
+        head: [['Producto', 'Precio']],
+        body: tableBody,
+        startY: 60,
+        theme: 'striped',
+        headStyles: { fillColor: [40, 167, 69] },
+        margin: { horizontal: 20 },
+    });
+
+    doc.setFontSize(14);
+    doc.text(`Total: Bs ${total}`, 20, doc.lastAutoTable.finalY + 15);
+    doc.text('¡Gracias por su compra!', 105, doc.lastAutoTable.finalY + 30, { align: 'center' });
+
+    doc.save('Factura_SPORT_SCZ.pdf');
+
+    alert('Factura generada exitosamente');
+}
+
+function showWelcomeMessage() {
+    alert("¡Bienvenido a SPORT SCZ! 🏃‍♂️\n\nTu tienda deportiva de confianza en Santa Cruz.\nEncuentra los mejores productos para tu entrenamiento.");
+}
+
+// Mostrar productos por defecto
+showSection('inicio');

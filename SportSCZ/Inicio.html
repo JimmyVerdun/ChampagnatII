@@ -1,1 +1,153 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa Deportiva - SPORT SCZ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.5.19/dist/jspdf.plugin.autotable.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-running"></i> SPORT SCZ</h1>
+    <p style="font-size: 1.2em; margin-top: 10px;">Tu tienda deportiva de confianza</p>
+</header>
+
+<nav>
+    <a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a>
+    <a href="#" onclick="showSection('productos')"><i class="fas fa-tshirt"></i> Productos</a>
+    <a href="#" onclick="showSection('carrito')"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cartCount">0</span>)</a>
+    <a href="#" onclick="showSection('contacto')"><i class="fas fa-phone"></i> Contacto</a>
+</nav>
+
+<div id="inicio" class="container">
+    <div class="img_inicio">
+        <img src="SportSCZ.jpg" alt="">
+    </div>
+</div>
+
+<div id="productos" class="container" style="display: none;">
+    <h2>Productos Disponibles</h2>
+
+    <div class="product-item">
+        <img src="https://cicadex.com/wp-content/uploads/2020/01/350-33-Camiseta-Hom-Azul-ped-27-3-4-RH-copia.jpg" alt="Camiseta Deportiva">
+        <h3>Camiseta Deportiva</h3>
+        <p>Bs 120</p>
+        <button onclick="addToCart('Camiseta Deportiva', 120)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://www.abyss.com.ar/img_productos/25I-0142.jpg" alt="Pantalón Deportivo">
+        <h3>Pantalón Deportivo</h3>
+        <p>Bs 150</p>
+        <button onclick="addToCart('Pantalón Deportivo', 150)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPQpDLSPEwNQF535arbUuMLmIribGdNk8tAg&s" alt="Zapatillas Futsal">
+        <h3>Zapatillas Futsal</h3>
+        <p>Bs 450</p>
+        <button onclick="addToCart('Zapatillas Futsal', 450)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQREP5pKpCEcgaXaYf99nQx7bRAzQGy7VXjZw&s" alt="Medias Antideslizante">
+        <h3>Medias Antideslizante</h3>
+        <p>Bs 30</p>
+        <button onclick="addToCart('Medias Antideslizante', 30)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVHDMsAgtvw7V-yCKZsQWWmU-9XotkQsUqhA&s" alt="Zapatillas Deportivas">
+        <h3>Zapatillas Deportivas</h3>
+        <p>Bs 600</p>
+        <button onclick="addToCart('Zapatillas Deportivas', 600)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw8e228a64/images/original/pim/847401001/847401001_1.jpg?sw=1000&sh=1000" alt="Short Deportivo">
+        <h3>Short Deportivo</h3>
+        <p>Bs 80</p>
+        <button onclick="addToCart('Short Deportivo', 80)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://m.media-amazon.com/images/I/51GPQolvYNL.jpg" alt="Chamarra Deportiva">
+        <h3>Chamarra Deportiva</h3>
+        <p>Bs 180</p>
+        <button onclick="addToCart('Chamarra Deportiva', 180)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://cdnx.jumpseller.com/accesorios-noit/image/67907808/resize/306/407?1758822748" alt="Rodillera Deportiva">
+        <h3>Rodillera Deportiva</h3>
+        <p>Bs 250</p>
+        <button onclick="addToCart('Rodillera Deportiva', 250)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThpREi6lb2fbj5nwXhgW4HUH0uVoZ0mR-3UA&s" alt="Canilleras">
+        <h3>Canilleras</h3>
+        <p>Bs 150</p>
+        <button onclick="addToCart('Canilleras', 150)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+
+    <div class="product-item">
+        <img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/d6d842fe-e77e-4d07-b30b-3f495fe303be/NK+ELMNTL+BKPK+-+HBR.png" alt="Mochila Deportiva">
+        <h3>Mochila Deportiva</h3>
+        <p>Bs 370</p>
+        <button onclick="addToCart('Mochila Deportiva', 370)"><i class="fas fa-cart-plus"></i> Añadir</button>
+    </div>
+</div>
+
+<div id="carrito" class="container" style="display: none;">
+    <h2><i class="fas fa-shopping-cart"></i> Carrito de Compras</h2>
+    <div id="cartItems"></div>
+    <div id="cartTotal"></div>
+    
+    <div id="payment-methods">
+        <h3>Métodos de Pago</h3>
+        <button onclick="payWithQR()"><i class="fas fa-qrcode"></i> Pagar con QR</button>
+    </div>
+
+    <div id="qrCodeContainer">
+        <h3>Escanea el código QR para realizar el pago</h3>
+        <div id="qrCode"></div>
+        <p style="margin-top: 20px; color: #666;">Total a pagar: Bs <span id="qrTotal">0</span></p>
+        <button onclick="generateInvoice()" style="margin-top: 15px;"><i class="fas fa-file-invoice"></i> Generar Factura</button>
+    </div>
+</div>
+
+<div id="contacto" class="container" style="display: none;">
+    <div class="contact-card">
+        <h2><i class="fas fa-address-card"></i> Contacto</h2>
+        <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+        <p><i class="fas fa-envelope"></i> Email: sportscztiendadeportiva@gmail.com</p>
+        <p><i class="fas fa-phone-alt"></i> Teléfono: +591 62020462</p>
+        <p><i class="fas fa-map-marker-alt"></i> Santa Cruz, Bolivia</p>
+    </div>
+</div>
+
+<footer>
+    <p style="font-size: 1.2em; margin-bottom: 10px;">Gracias por visitar nuestra tienda. ¡Esperamos verte pronto!</p>
+    <p>SPORT SCZ - Tu mejor opción deportiva</p>
+    <div class="social-links">
+        <a href="https://www.facebook.com/share/19Sff2F1sh/" target="_blank" title="Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://web.whatsapp.com/" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/tienda_sport1221?igsh=MXcyMHJydWliZmF0ZQ==" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</footer>
+<script src="script-js"></script>
+</body>
+</html>

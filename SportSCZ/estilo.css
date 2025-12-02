@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+#welcome-btn {
+    margin-top: 15px;
+    padding: 12px 30px;
+    background: white;
+    color: #28a745;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#welcome-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.container {
+    padding: 30px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.img_inicio {
+    text-align: center;
+}
+
+.img_inicio img {
+    width: 55%;
+    border-style: ridge;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(83, 255, 36, 0.706);
+}
+
+.product-item {
+    display: inline-block;
+    width: 280px;
+    margin: 15px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    vertical-align: top;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 1.3em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-item p {
+    font-size: 1.5em;
+    color: #28a745;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+button {
+    padding: 12px 25px;
+    color: white;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    padding: 8px 15px;
+    font-size: 0.9em;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:hover {
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.cart-item-price {
+    color: #28a745;
+    font-weight: bold;
+}
+
+#cartTotal {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: right;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#cartTotal strong {
+    font-size: 1.5em;
+    color: #28a745;
+}
+
+#payment-methods {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#payment-methods h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+#payment-methods button {
+    margin: 0 10px;
+}
+
+.payment-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.payment-form input:focus {
+    outline: none;
+    border-color: #28a745;
+}
+
+#qrCodeContainer {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+#qrCodeContainer h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#qrCode canvas {
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-card h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-card p {
+    color: #666;
+    font-size: 1.1em;
+    margin: 15px 0;
+}
+
+.contact-card i {
+    color: #28a745;
+    margin-right: 10px;
+}
+
+footer {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+}
+
+.empty-cart i {
+    font-size: 4em;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.empty-cart h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cart-item {
+    animation: fadeIn 0.5s;
+}
