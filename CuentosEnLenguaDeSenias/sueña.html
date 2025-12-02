@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuento del Búho con Ojos de Universo</title>
+  <link rel="stylesheet" href="proyectoinicio.css" />
+  <style>
+    .video-page {
+      text-align: center;
+      padding: 60px 20px;
+      color: #f1f1f1;
+    }
+
+    .video-page h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    video {
+      width: 80%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .video-buttons {
+      margin-bottom: 25px;
+    }
+
+    button {
+      background: #6c63ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #5848c2;
+    }
+
+    .back-btn {
+      background: linear-gradient(to right, #9b1fcc, #da1b1b);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      opacity: 0.85;
+    }
+
+
+    .subtitulo {
+      margin: 10px auto 30px auto;
+      width: 80%;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 15px;
+      backdrop-filter: blur(5px);
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+    }
+
+    .subtitulo p {
+      font-size: 1.1rem;
+      color: #fff;
+      margin: 0;
+    }
+
+
+    .texto-container {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      margin: 0 auto;
+      width: 80%;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      color: white;
+    }
+
+    .texto-container h2 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      font-size: 1rem;
+      resize: none;
+      outline: none;
+    }
+
+    textarea::placeholder {
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="video-page container">
+    <h1><strong>Sueña</strong></h1>
+
+    <video id="video" controls>
+      <source src="video/video5.mp4" type="video/mp4" />
+      Tu navegador no soporta el video.
+    </video>
+
+
+    <div class="subtitulo" id="subtitulo">
+      <p></p>
+    </div>
+
+    <div class="video-buttons">
+      <button onclick="playVideo()">▶ Reproducir</button>
+      <button onclick="pauseVideo()">⏸ Pausar</button>
+      <a href="index.html" class="back-btn">Volver al inicio</a>
+      <a href="proyectocuento.html" class="back-btn">Volver a los cuentos</a>
+    </div>
+
+
+    <div class="texto-container">
+      <h2>Sueña</h2>
+      <strong>Moraleja:</strong>  
+      “Los sueños pueden nacer en los lugares más humildes. No importa de dónde vengas, sino  
+      la disciplina que tengas y cuánto te esfuerces por alcanzar lo que anhelas.  
+      La constancia, la pasión, la moral y el trabajo duro pueden convertir los sueños más imposibles en realidades grandiosas.”
+    </div>
+
+  </section>
+
+  <script>
+    const video = document.getElementById("video");
+    const subtitulo = document.getElementById("subtitulo").querySelector("p");
+
+    function playVideo() {
+      video.play();
+    }
+
+    function pauseVideo() {
+      video.pause();
+    }
+
+
+    video.ontimeupdate = function () {
+      const t = video.currentTime;
+
+      if (t >= 0 && t < 10) {
+        subtitulo.textContent = "Pepito era un niño de bajos recursos que solía barrer todos los días la puerta de su casa.";
+      }
+      else if (t >= 10 && t < 20) {
+        subtitulo.textContent = "Un día, vio en la televisión un partido del Real Madrid y soñó con ser futbolista.";
+      }
+      else if (t >= 21 && t < 29) {
+        subtitulo.textContent = "Su padre le regaló un balón de fútbol para que se divierta y Pepito comenzó a practicar con pasión.";
+      }
+      else if (t >= 30 && t < 40) {
+        subtitulo.textContent = " pepito se vuelve muy habilidoso en el futbol a su corta edad, luego pepito va creciendo y se vuelve mas rápido y ágil";
+      }
+      else if (t >= 40 && t < 45) {
+        subtitulo.textContent = "Con el tiempo, un hombre de traje negro lo descubrió y lo llevó al Real Madrid.";
+      }
+       else if (t >= 45 && t < 50) {
+        subtitulo.textContent = " el señor se contacta con el padre del niño y le ofrece un contrato con el Real Madrid,";
+      }
+      else if (t >= 50 && t < 56) {
+        subtitulo.textContent = "  el niño llega a las instalaciones de futbol del Real Madrid.";
+      }
+      else if (t >= 56 && t < 68) {
+        subtitulo.textContent = "Pepito se convirtió en un gran jugador, ganó su primer título de Europa";
+      }
+      else if (t >= 68 && t < 75) {
+        subtitulo.textContent = "Pepito conseguiria su primer balon de oro y porfin cumpliendo su sueño mas querido desde niño";
+      }
+      else {
+        subtitulo.textContent = "";
+      }
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Te Ayudo</title>
+    <link rel="stylesheet" href="proyectojuego.css">
+     <link rel="icon" href="imagenes/maristas.jpg">
+    <style>
+       
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <div class="menu">
+            <a href="#" class="logo"><strong>TE AYUDO</strong></a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proyectoaprende.html">Aprende</a></li>
+                    <li><a href="proyectocuento.html">Cuentos</a></li>
+                    <li><a href="minijuego.html">Minijuego</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>MINIJUEGO: RESPONDE LAS PREGUNTAS</h1>
+
+        <video id="videoPregunta" controls>
+            <source src="video/Video de WhatsApp 2025-10-12 a las 19.47.02_24769bed.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+
+        <p class="question" id="question">Cargando pregunta...</p>
+
+        <div class="buttons">
+            <button onclick="responder(true)">1RA OPCION</button>
+            <button onclick="responder(false)">2DA OPCION</button>
+        </div>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <!-- ======= SCRIPT DEL JUEGO ======= -->
+  <script>
+  const preguntas = [
+    {
+      texto: "¿Cuál es el gesto para decir hola en la lengua de señas?",
+      correcta: true,
+      videoPregunta: "videos/pregunta1.mp4",
+      videoRespuesta: "videos/respuesta1.mp4"
+    },
+    {
+      texto: "¿La lengua de señas son diferentes en varios países?",
+      correcta: true,
+      videoPregunta: "videos/pregunta2.mp4",
+      videoRespuesta: "videos/respuesta2.mp4"
+    },
+    {
+      texto: "La Tierra gira alrededor del Sol.",
+      correcta: true,
+      videoPregunta: "videos/pregunta3.mp4",
+      videoRespuesta: "videos/respuesta3.mp4"
+    },
+    {
+      texto: "Los peces viven en el aire.",
+      correcta: false,
+      videoPregunta: "videos/pregunta4.mp4",
+      videoRespuesta: "videos/respuesta4.mp4"
+    },
+    {
+      texto: "El color blanco se forma al mezclar todos los colores de la luz.",
+      correcta: true,
+      videoPregunta: "videos/pregunta5.mp4",
+      videoRespuesta: "videos/respuesta5.mp4"
+    },
+    {
+      texto: "El cuerpo humano tiene tres pulmones.",
+      correcta: false,
+      videoPregunta: "videos/pregunta6.mp4",
+      videoRespuesta: "videos/respuesta6.mp4"
+    },
+    {
+      texto: "El lenguaje de señas es una forma válida de comunicación.",
+      correcta: true,
+      videoPregunta: "videos/pregunta7.mp4",
+      videoRespuesta: "videos/respuesta7.mp4"
+    }
+  ];
+
+  let actual = 0;
+  let puntaje = 0;
+
+  const video = document.getElementById("videoPregunta");
+  const texto = document.getElementById("question");
+  const resultado = document.getElementById("result");
+  const botones = document.querySelector(".buttons");
+
+  // 🔹 Muestra la pregunta actual
+  function mostrarPregunta() {
+    if (actual < preguntas.length) {
+      const q = preguntas[actual];
+      texto.textContent = q.texto;
+      video.src = q.videoPregunta;
+      video.load();
+      resultado.textContent = "";
+    } else {
+      mostrarResultados();
+    }
+  }
+
+  // 🔹 Muestra resultado final con botón "Jugar de nuevo"
+  function mostrarResultados() {
+    texto.textContent = "🎉 ¡Has terminado todas las preguntas!";
+    video.style.display = "none";
+    botones.style.display = "none";
+
+    resultado.innerHTML = `
+      <p>Tu puntuación final es: <strong>${puntaje}</strong> de ${preguntas.length}</p>
+      <button id="btnReiniciar">🔁 Jugar de nuevo</button>
+    `;
+
+    // 🔸 Estilo del botón
+    const btnReiniciar = document.getElementById("btnReiniciar");
+    btnReiniciar.style.marginTop = "15px";
+    btnReiniciar.style.padding = "12px 25px";
+    btnReiniciar.style.border = "none";
+    btnReiniciar.style.borderRadius = "10px";
+    btnReiniciar.style.backgroundColor = "#81c784";
+    btnReiniciar.style.color = "white";
+    btnReiniciar.style.fontSize = "1.1em";
+    btnReiniciar.style.cursor = "pointer";
+    btnReiniciar.style.transition = "0.3s";
+    btnReiniciar.onmouseover = () => (btnReiniciar.style.backgroundColor = "#66bb6a");
+    btnReiniciar.onmouseout = () => (btnReiniciar.style.backgroundColor = "#81c784");
+
+    // 🔹 Al hacer clic, reinicia el juego
+    btnReiniciar.addEventListener("click", reiniciarJuego);
+  }
+
+  // 🔹 Lógica al responder
+  function responder(eleccion) {
+    const q = preguntas[actual];
+
+    if (eleccion === q.correcta) {
+      puntaje++;
+      resultado.textContent = "✅ ¡Correcto!";
+    } else {
+      resultado.textContent = "❌ Incorrecto.";
+    }
+
+    // 🔸 Mostrar video de respuesta
+    video.src = q.videoRespuesta;
+    video.load();
+    video.play();
+
+    // 🔸 Pasar a la siguiente pregunta después de unos segundos
+    setTimeout(() => {
+      actual++;
+      mostrarPregunta();
+    }, 1000);
+  }
+
+  // 🔹 Reiniciar el juego sin recargar la página
+  function reiniciarJuego() {
+    actual = 0;
+    puntaje = 0;
+    video.style.display = "block";
+    botones.style.display = "flex";
+    resultado.textContent = "";
+    mostrarPregunta();
+  }
+
+  // 🔹 Inicia el juego
+  mostrarPregunta();
+</script>
+
+
+</body>
+
+</html>
