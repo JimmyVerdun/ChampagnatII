@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda lifederm</title>
+    <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+    <header class="header">
+        <div class="logo">
+            <img src="img/logo1.jpeg" alt="Logo BellaVida">
+            <span>BellaVida</span>
+        </div>
+        <nav class="navbar">
+            <ul id="navMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="redes.html">Redes Sociales</a></li>
+                <li><a href="ubicacion.html">Ubicación</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="productos.html" class="active">Productos</a></li>
+                <li><a href="img/revista.pdf" target="_blank">Catálogo</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="productos">
+            <div class="producto">
+                <img src="img/produc1.jpeg" alt="Producto 1">
+                <h3>Shampoo</h3>
+                <p>Precio: $15</p>
+                <button onclick="agregarCarrito('Shampoo', 15)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc2.jpeg" alt="Producto 2">
+                <h3>Acondicionador </h3>
+                <p>Precio: $18</p>
+                <button onclick="agregarCarrito('Acondicionador', 18)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc3.jpeg" alt="Producto 3">
+                <h3>Mascarilla Capilar</h3>
+                <p>Precio: $25</p>
+                <button onclick="agregarCarrito('Mascarilla Capilar', 25)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc4.jpeg" alt="Producto 4">
+                <h3>Serum</h3>
+                <p>Precio: $20</p>
+                <button onclick="agregarCarrito('Serum', 20)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc5.jpeg" alt="Producto 5">
+                <h3>Spray Capilar</h3>
+                <p>Precio: $12</p>
+                <button onclick="agregarCarrito('Spray Capilar', 12)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc6.jpeg" alt="Producto 6">
+                <h3>Champú Anticaspa</h3>
+                <p>Precio: $16</p>
+                <button onclick="agregarCarrito('Champú Anticaspa', 16)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc7.jpeg" alt="Producto 7">
+                <h3>Aceite Capilar</h3>
+                <p>Precio: $22</p>
+                <button onclick="agregarCarrito('Aceite Capilar', 22)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc8.jpeg" alt="Producto 8">
+                <h3>Gel Fixador</h3>
+                <p>Precio: $10</p>
+                <button onclick="agregarCarrito('Gel Fixador', 10)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc9.jpeg" alt="Producto 9">
+                <h3>Crema Nutritiva</h3>
+                <p>Precio: $19</p>
+                <button onclick="agregarCarrito('Crema Nutritiva', 19)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/produc10.jpeg" alt="Producto 10">
+                <h3>Leave-in lipogel</h3>
+                <p>Precio: $14</p>
+                <button onclick="agregarCarrito('Leave-in lipogel', 14)">Agregar al carrito</button>
+            </div>
+        </section>
+
+        <aside class="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p>Total: $<span id="total">0</span></p>
+            <button class="btn-comprar" onclick="comprar()">Comprar</button>
+        </aside>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Life Derm | Todos los derechos reservados</p>
+    </footer>
+    <script>
+         // Menú hamburguesa (tu código original)
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        const nicolNumber = '59163478591';
+        let carrito = [];
+        let total = 0;
+
+        function agregarCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            actualizarCarrito();
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const lista = document.getElementById('lista-carrito');
+            lista.innerHTML = '';
+            total = 0;
+            carrito.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    ${item.nombre} - $${item.precio}
+                    <button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">X</button>
+                `;
+                lista.appendChild(li);
+                total += item.precio;
+            });
+            document.getElementById('total').textContent = total;
+        }
+
+        function comprar() {
+            if (carrito.length === 0) {
+                alert("Tu carrito está vacío.");
+                return;
+            }
+            let mensaje = "Hola Nicol, me podrías pasar un QR para los siguientes productos:%0A%0A";
+            carrito.forEach(item => {
+                mensaje += `- ${item.nombre}: $${item.precio}%0A`;
+            });
+            mensaje += `%0A➡️ Total: $${total}`;
+            const url = `https://wa.me/${nicolNumber}?text=${mensaje}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+
+</html>

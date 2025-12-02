@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifederm - Tienda de Cosméticos</title>
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Swiper CSS (versión más reciente 2025) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+    <!-- Fondo general -->
+    <div class="background-overlay"></div>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+        <div class="logo">
+            <img src="img/logo1.jpeg" alt="Logo BellaVida">
+            <span>BellaVida</span>
+        </div>
+        <nav class="navbar">
+            <ul id="navMenu">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="redes.html">Redes Sociales</a></li>
+                <li><a href="ubicacion.html">Ubicación</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="img/revista.pdf" target="_blank">Catálogo</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Resalta tu Belleza Natural</h1>
+            <p>Descubre nuestra nueva línea de cosméticos orgánicos y cruelty free 🌿</p>
+        </div>
+    </section>
+
+    <!-- CARRUSEL LLAMATIVO CON SWIPER -->
+    <section class="swiper-carrusel">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Acá vas poniendo tus imágenes (repetí el slide cuantas veces quieras) -->
+                <div class="swiper-slide">
+                    <img src="img/produc1.jpeg" alt="Producto 1">
+                    <div class="caption">
+                        <h3>Racco Lipogel</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/produc2.jpeg" alt="Producto 2">
+                    <div class="caption">
+                        <h3>Racco ARL SavoneteC</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/produc3.jpeg" alt="Oferta">
+                    <div class="caption">
+                        <h3>Racco Depeeling</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/produc4.jpeg" alt="Cliente feliz">
+                    <div class="caption">
+                        <h3>Ciclos d'Racco</h3>
+                    </div>
+                </div>
+                <!-- Agregá más slides aquí -->
+            </div>
+
+            <!-- Navegación -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <p>© 2025 Life Derm | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Menú hamburguesa (tu código original)
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Inicializar Swiper - efecto coverflow súper llamativo
+        const swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",          // Se puede usar "fade", "cube" o "slide"
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 30,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 1,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

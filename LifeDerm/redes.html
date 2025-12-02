@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociales</title>
+    <link rel="stylesheet" href="redes.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+    <!-- ENCABEZADO -->
+    <header class="header">
+        <div class="logo">
+            <img src="img/logo1.jpeg" alt="Logo BellaVida">
+            <span>BellaVida</span>
+        </div>
+        <nav class="navbar">
+            <ul id="navMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="redes.html" class="active">Redes Sociales</a></li>
+                <li><a href="ubicacion.html">Ubicación</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="img/revista.pdf" target="_blank">Catálogo</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="redes">
+        <div class="red">
+            <a href="https://www.instagram.com/lifederm.sc?igsh=MXJmcnA4cjI4YXBvZw==" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+        </div>
+        <div class="red">
+            <a href="https://www.facebook.com/profile.php?id=61583302564684" target="_blank">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+        </div>
+
+    </section>
+    <footer class="footer">
+        <p>© 2025 Life Derm | Todos los derechos reservados</p>
+    </footer>
+    <script>
+         // Menú hamburguesa (tu código original)
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
