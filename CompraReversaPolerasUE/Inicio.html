@@ -1,1 +1,71 @@
-CompraReversaPolerasUE
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniformes Marcelino Champagnat II - Ventas Profesionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet"> <!-- Tipografía moderna -->
+    <link rel="stylesheet" href="codigo bth.css">
+</head>
+<body>
+    <header>
+        <section class="header-container" role="banner">
+            <img src="logo final.png" alt="logo del colegio">
+            <h1>MARCELINO CHAMPAGNAT UNIFORMES</h1>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-menu">
+                    <li><a href="Inicio.html" data-seccion="inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="Compras.html" data-seccion="catalogo" class="nav-link">Compras</a></li>
+                    <li><a href="Reservas.html" data-seccion="reserva" class="nav-link">Reservas</a></li>
+                    <li><a href="Nosotros.html" data-seccion="nosotros" class="nav-link">Nosotros</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <!-- Sección Hero para Inicio -->
+        <section id="inicio" class="section-hero section-content">
+            <div class="hero-text">
+                <h2>Bienvenido a Nuestras Ventas de Uniformes Escolares</h2>
+                <p>Ahora puedes comprar y reservar tus poleras en el mejor sitio web de nuestro colegio.</p>
+                <p>¡Explora nuestro catálogo y reserva lo que necesitas!</p>
+            </div>
+            <div class="hero-image">
+                <img src="chico_ia.jpg" alt="Imagen de uniforme escolar de muestra" loading="lazy">
+            </div>
+        </section>
+
+    </main>
+    
+    <footer role="contentinfo">
+        <div class="footer-social">
+            <a href="https://www.facebook.com/share/1AbT1j4J4B/" aria-label="Facebook">Facebook</a>
+            <a href="https://www.instagram.com/pastoralmarcelinochampagnatsc?igsh=MTF1eWdoNmc1MnA0dg==" aria-label="Instagram">Instagram</a>
+            <a href="https://youtube.com/@cemarcelinochampagnat?si=JH-JBC3o_szCQGZ4" aria-label="YouTube">YouTube</a>
+            <p>&copy; 2025 Uniformes Marcelino Champagnat. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script>
+            function handleBuy(product) {
+                alert(`¡Has comprado ${product}! Redirigiendo al pago...`);  // Puedes conectar a un sistema real
+            }
+
+            function handleReserve(product) {
+                alert(`¡Has reservado ${product}! Te enviaremos un correo de confirmación.`);
+            }
+
+            // Formulario de contacto (ejemplo simple)
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Mensaje enviado. ¡Gracias por contactarnos!');
+                this.reset();
+            });
+        
+    </script>
+</body>
+</html>

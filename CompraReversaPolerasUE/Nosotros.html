@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniformes Marcelino Champagnat - Ventas Profesionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet"> <!-- Tipografía moderna -->
+    <link rel="stylesheet" href="codigo bth.css">
+</head>
+<body>
+    <header>
+        <section class="header-container" role="banner">
+            <img src="logo final.png" alt="logo del colegio">
+            <h1>MARCELINO CHAMPAGNAT UNIFORMES</h1>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-menu">
+                    <li><a href="Inicio.html" data-seccion="inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="Compras.html" data-seccion="catalogo" class="nav-link">Compras</a></li>
+                    <li><a href="Reservas.html" data-seccion="reserva" class="nav-link">Reservas</a></li>
+                    <li><a href="Nosotros.html" data-seccion="nosotros" class="nav-link active">Nosotros</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+       <section id="nosotros" class="section-content">
+            <h2>¡Conoce mas sobre nosotros!</h2>
+            <p>Somos un grupo comprometido con la innovacion y tecnologia. Creamos este sitio web con el proposito
+                de facilitar la compra de las poleras escolares y reservar  de forma rapida , sencilla y segura , brindando
+                a una mejor experiencia al usuario. 
+            </p>
+        </section>
+        <section class="nosotros2">
+            <h2>Este sitio web fue hecho por:</h2>
+        <div class="contenedor-global">
+            <div class="contenedor-tarjetas">
+                <div class="tarjeta">
+                    <h2 class="tarjeta-titulo">NAOMI DAZA</h2>
+                    <img src="naomi.jpg" alt="Imagen Producto 1" class="tarjeta-imagen">
+                    <p>¡Hola! mi nombre es Naomi. Me considero una persona creativa y optimista,
+                        siempre buscando soluciones y nuevas ideas para mejorar. Sigo los valores
+                        maristas que son modestia, sencillez y humildad. Junto con mi compañero 
+                        hicimos este proyecto porque vimos una necesidad real en nuestro colegio
+                        al momento de comprar y reservar las poleras escolares. Por lo tanto quisimos
+                        crear una solucion practica y accesible. </p>
+                </div>
+                <div class="tarjeta">
+                    <h2 class="tarjeta-titulo">FRANZ CRUZ</h2>
+                    <img src="franz.jpg" alt="Imagen Producto 1" class="tarjeta-imagen" id="foto-flan">
+                    <p>Hola, mi nombre es Franz y me considero una persona tranquila, serena y que
+                        siempre intenta resolver las cosas mediante el dialogo. Me gusta ir al cine,
+                        reir, charlar y jugar videojuegos movil. junto con mi compañera les presentamos
+                        este sitio web hecho con mucho amor y paciencia, esperamos que le guste.
+                    </p>
+                </div>
+        </div>
+    </div>
+        </section>
+
+    </main>
+
+   <footer role="contentinfo">
+        <div class="footer-social">
+            <a href="https://www.facebook.com/share/1AbT1j4J4B/" aria-label="Facebook">Facebook</a>
+            <a href="https://www.instagram.com/pastoralmarcelinochampagnatsc?igsh=MTF1eWdoNmc1MnA0dg==" aria-label="Instagram">Instagram</a>
+            <a href="https://youtube.com/@cemarcelinochampagnat?si=JH-JBC3o_szCQGZ4" aria-label="YouTube">YouTube</a>
+        </div>
+        <p>&copy; 2025 Uniformes Marcelino Champagnat. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+            function handleBuy(product) {
+                alert(`¡Has comprado ${product}! Redirigiendo al pago...`);  // Puedes conectar a un sistema real
+            }
+
+            function handleReserve(product) {
+                alert(`¡Has reservado ${product}! Te enviaremos un correo de confirmación.`);
+            }
+
+            // Formulario de contacto (ejemplo simple)
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Mensaje enviado. ¡Gracias por contactarnos!');
+                this.reset();
+            });
+       
+    </script>
+</body>
+</html>
