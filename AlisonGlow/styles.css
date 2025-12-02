@@ -1,0 +1,386 @@
+/* === RESET GENERAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === VARIABLES DE COLOR === */
+:root {
+  --color-principal: #ae6275;
+  --color-secundario: #cf92a1;
+  --color-acento: #ff4b7a;
+  --color-texto: #333;
+  --color-fondo: #fff0f6;
+}
+
+/* === ESTILO GLOBAL === */
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === CABECERA Y MENÃš === */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-principal);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Ãcono menÃº (solo mÃ³vil) */
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+  display: block;
+}
+
+/* MenÃº principal */
+.menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.menu a {
+  color: var(--color-principal);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 20px;
+  transition: background 0.3s;
+}
+
+.menu a:hover {
+  background: var(--color-fondo);
+  color: var(--color-acento);
+}
+
+.menu.visible {
+  display: flex;
+}
+
+/* === MENU EN PANTALLA GRANDE === */
+@media (min-width: 768px) {
+  .menu {
+    display: flex !important;
+    position: static;
+    background: none;
+    box-shadow: none;
+    flex-direction: row;
+    gap: 25px;
+  }
+  .menu-icon {
+    display: none;
+  }
+  .menu a {
+    color: #fff;
+    padding: 0;
+  }
+  .menu a:hover {
+    color: #ffe4ec;
+    background: none;
+  }
+}
+
+/* === HERO PRINCIPAL === */
+#hero {
+  background: url("https://static.vecteezy.com/system/resources/previews/037/236/600/non_2x/ai-generated-cosmetics-store-advertisment-background-with-copy-space-free-photo.jpg") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: var(--color-secundario);
+  color: white;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: var(--color-acento);
+}
+
+/* === SECCIONES GENERALES === */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: var(--color-acento);
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* === NOSOTROS === */
+.imagen_izqui {
+  float: left;
+  margin-right: 20px;
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .imagen_izqui {
+    float: none;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  .about-text {
+    text-align: center;
+  }
+}
+
+/* === SERVICIOS === */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.service-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: var(--color-texto);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card img {
+  background: #ffe4ec;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+/* === GALERÃA DE UÃ‘AS === */
+.unas {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.unas h2 {
+  font-size: 2.2rem;
+  color: #723653;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.unas p {
+  color: #555;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+.galeria-unas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 15px 0 5px;
+  color: var(--color-principal);
+  font-size: 1.3rem;
+}
+
+.card p {
+  padding: 0 15px 20px;
+  color: #666;
+  font-size: 0.95rem;
+}
+.contenedor{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  max-width: 1000px;
+  margin: auto;
+}
+/* === PROMOCIONES === */
+.promo-card {
+  background: #ffe4ec;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 550px;
+  height: auto;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.boton-centro {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.boton-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-principal);
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.boton-whatsapp:hover {
+  background-color: #844b5a;
+}
+
+.boton-whatsapp img {
+  width: 20px;
+  height: 20px;
+}
+
+/* === FOOTER === */
+footer {
+  background: var(--color-secundario);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95rem;
+}
+
+/* === DETALLES DE SERVICIO === */
+.service-detail {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.service-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.service-detail li {
+  background: var(--color-principal);
+  margin: 10px;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.service-detail li:hover {
+  background: var(--color-secundario);
+}
+
+.service-detail .btn {
+  display: inline-flex;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: var(--color-principal);
+  color: #ffffff;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s;
+  justify-content: center;
+}
+
+.service-detail .btn:hover {
+  background: var(--color-acento);
+}
