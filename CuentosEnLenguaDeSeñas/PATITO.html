@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuento del Búho con Ojos de Universo</title>
+  <link rel="stylesheet" href="proyectoinicio.css" />
+  <style>
+    .video-page {
+      text-align: center;
+      padding: 60px 20px;
+      color: #f1f1f1;
+    }
+
+    .video-page h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    video {
+      width: 80%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .video-buttons {
+      margin-bottom: 25px;
+    }
+
+    button {
+      background: #6c63ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #5848c2;
+    }
+
+    .back-btn {
+      background: linear-gradient(to right, #9b1fcc, #da1b1b);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      opacity: 0.85;
+    }
+
+    /* Subtítulos dinámicos */
+    .subtitulo {
+      margin: 10px auto 30px auto;
+      width: 80%;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 15px;
+      backdrop-filter: blur(5px);
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+    }
+
+    .subtitulo p {
+      font-size: 1.1rem;
+      color: #fff;
+      margin: 0;
+    }
+
+    /* === CONTENEDOR DE TEXTO === */
+    .texto-container {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      margin: 0 auto;
+      width: 80%;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      color: white;
+    }
+
+    .texto-container h2 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      font-size: 1rem;
+      resize: none;
+      outline: none;
+    }
+
+    textarea::placeholder {
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="video-page container">
+    <h1><strong>El Patito Feo</strong></h1>
+
+    <video id="video" controls>
+      <source src="video/video4.mp4" type="video/mp4" />
+      Tu navegador no soporta el video.
+    </video>
+
+    <!-- Subtítulos automáticos -->
+    <div class="subtitulo" id="subtitulo">
+      <p></p>
+    </div>
+
+    <div class="video-buttons">
+      <button onclick="playVideo()">▶ Reproducir</button>
+      <button onclick="pauseVideo()">⏸ Pausar</button>
+      <a href="index.html" class="back-btn">Volver al inicio</a>
+      <a href="proyectocuento.html" class="back-btn">Volver a los cuentos</a>
+    </div>
+
+    <!-- Texto final y moraleja -->
+    <div class="texto-container">
+      <h2>El Patito Feo</h2>
+      <strong>Moraleja:</strong>  
+      “No importa si los demás no ven tu valor hoy; con el tiempo, descubrirás que ser diferente es lo que te hace verdaderamente especial y hermoso.”
+    </div>
+
+  </section>
+
+  <script>
+    const video = document.getElementById("video");
+    const subtitulo = document.getElementById("subtitulo").querySelector("p");
+
+    function playVideo() {
+      video.play();
+    }
+
+    function pauseVideo() {
+      video.pause();
+    }
+
+    // Subtítulos automáticos sincronizados
+    video.ontimeupdate = function () {
+      const t = video.currentTime;
+
+      if (t >= 0 && t < 5) {
+        subtitulo.textContent = "un dia nace un patito plomo feo.";
+      }
+      else if (t >= 5 && t < 12) {
+        subtitulo.textContent = "sus hermanos y su madre no lo querían por que era diferente a sus hermanos";
+      }
+      else if (t >= 12 && t < 20) {
+        subtitulo.textContent = " un dia el patito feo es separado de su familia gracias a una lluvia fuerte que los separo";
+      }
+      else if (t >= 20 && t < 34) {
+        subtitulo.textContent = " el patito feo se quedo triste nadando en el rio de repente aparece un cocodrillo y el patito se asusto y salió nadando rápido y logro salvarse";
+      }
+      else if (t >= 34 && t < 44) {
+        subtitulo.textContent = "luego de tiempo el patito ve en el reflejo del agua una figura de un cisne";
+      }
+       else if (t >= 44 && t < 50) {
+        subtitulo.textContent = " y quien diría que el patito feo llegaría a ser un cisne muy hermoso y grande";
+      }
+      else {
+        subtitulo.textContent = "";
+      }
+    };
+  </script>
+</body>
+
+</html>
